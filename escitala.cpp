@@ -2,28 +2,20 @@
 #include <vector>
 using namespace std;
 
-string mensaje;
-int f=10;
-int c=15;
-string codigo[10][15];
-//string sms(mensaje,fila,columna);
-int main(){
-    mensaje="From indirect evidence, the scytale was first mentioned by the Greek poet Archilochus, who lived in the 7th century BC";//recorrer el string
-    /*for(int a=0; a<mensaje.size() ;a++){}*/
+void encriptar(int f,int c,string mensaje){
 
+    string codigo[f][c];
     for (int i = 0; i < f; i++)//rellenar la matriz con el mensaje
     {
         for (int j = 0; j< c; j++)
         {
             int a;
-            if (a>=mensaje.size()){//verifico si el string es menor relleno de espacios
+            if (a>=mensaje.size()){//verifico si el string es menor; else relleno de espacios
                 codigo[i][j]=" ";
             }
             else{
                 codigo[i][j]=mensaje[a];}// sino continua
             a++;
-             //cout<<codigo[i][j]<<endl;
-             //cout<<j<<i<<endl;
         }
     }
     for(int i=0; i<c;i++){
@@ -33,6 +25,32 @@ int main(){
         }
     }
 
-    //cout<<codigo[0][0]<<endl;
+};
+void desencriptar(int f,int c,string mensaje){
 
+    string codigo[f][c];
+
+    for (int i = 0; i < c; i++)//rellenar la matriz con el mensaje
+    {
+        for (int j = 0; j< f; j++)
+        {
+            int a;
+                codigo[j][i]=mensaje[a];// sino continua
+            a++;
+        }
+    }
+    for(int i=0; i<f;i++){
+        for(int j=0;j<c;j++){
+                cout<<codigo[i][j]; //imprime codigo desencriptado
+
+        }
+    }
+
+};
+int main(){
+   /*string sms="From indirect evidence, the scytale was first mentioned by the Greek poet Archilochus, who lived in the 7th century BC";
+    encriptar(10,15,sms);
+    cout<<endl;*/
+    string sms="Fvy hr t  ritmeclh  odae hi   melnGivc   netrlee  ic ieodn  newoec t  d,ankhiu  i se unr  rt dps y  ehf o,t   ceibe hB  t rytweC   ss  h    ecttAo7   ";
+    desencriptar(10,15,sms);
  return 0;}
